@@ -28,7 +28,6 @@ class BinarySearchTree {
     let current = this.root;
 
     while (true) {
-      
       //2. Si el nodo actual es igual al actual lo ignoro
       if (value === current.value) break;
 
@@ -51,6 +50,35 @@ class BinarySearchTree {
       }
     }
   }
+
+  serch(value) {
+    if (this.root === null) return false;
+
+    //Parto de la raiz
+    let current = this.root;
+
+    let i = 0;
+
+    //Mientras el valor no sea el actual sigo
+    while (current) {
+        
+        //nos va mostrar lo que tenia i ya aumentandole 1 y si se pone i++ lo va mostrar y despues sumar
+        console.log(++i);
+
+
+      //Si el nodo actual es el que busco lo retorno   
+      if (value === current.value) return current;
+
+      //Sino pregunto el valor es menor a mi nodo y me voy a la izquierda y sino a la derecha
+      if (value < current.value) {
+        current = current.left;
+      }else{
+        current = current.right;
+      }
+    }
+
+    return false;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -61,6 +89,8 @@ tree.insert(10);
 tree.insert(11);
 tree.insert(8);
 tree.insert(4);
-tree.insert(3); 
+tree.insert(3);
 
 console.log(tree);
+
+tree.serch(3);
