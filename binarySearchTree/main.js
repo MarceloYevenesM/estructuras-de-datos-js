@@ -28,6 +28,7 @@ class BinarySearchTree {
     let current = this.root;
 
     while (true) {
+      
       //2. Si el nodo actual es igual al actual lo ignoro
       if (value === current.value) break;
 
@@ -35,7 +36,7 @@ class BinarySearchTree {
       if (value < current.value) {
         //Si el hijo es null inserto ahí el nodo
         if (current.left === null) {
-          current.left = nodo;
+          current.left = node;
           break;
         }
         //Sino es una hoja hago que el nodo apunte al lado siguiente
@@ -46,12 +47,11 @@ class BinarySearchTree {
           current.right = node;
           break;
         }
-        current.right = nodo;
+        current = current.right;
       }
     }
   }
 }
-
 
 const tree = new BinarySearchTree();
 tree.insert(5);
@@ -61,4 +61,6 @@ tree.insert(10);
 tree.insert(11);
 tree.insert(8);
 tree.insert(4);
-tree.insert(3);
+tree.insert(3); 
+
+console.log(tree);
