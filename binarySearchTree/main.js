@@ -56,10 +56,9 @@ class BinarySearchTree {
 
     //Parto de la raiz
     let current = this.root;
-
     let i = 0;
 
-    //Mientras el valor no sea el actual sigo
+    //Mientras el valor no sea el actual o null sigo
     while (current) {
         
         //nos va mostrar lo que tenia i ya aumentandole 1 y si se pone i++ lo va mostrar y despues sumar
@@ -81,6 +80,8 @@ class BinarySearchTree {
   }
 }
 
+
+//Uso arbol binario de busqueda 
 const tree = new BinarySearchTree();
 tree.insert(5);
 tree.insert(9);
@@ -91,6 +92,6 @@ tree.insert(8);
 tree.insert(4);
 tree.insert(3);
 
-console.log(tree);
 
-tree.serch(3);
+
+console.log(tree.serch(40));
