@@ -60,18 +60,16 @@ class BinarySearchTree {
 
     //Mientras el valor no sea el actual o null sigo
     while (current) {
-        
-        //nos va mostrar lo que tenia i ya aumentandole 1 y si se pone i++ lo va mostrar y despues sumar
-        console.log(++i);
+      //nos va mostrar lo que tenia i ya aumentandole 1 y si se pone i++ lo va mostrar y despues sumar
+      console.log(++i);
 
-
-      //Si el nodo actual es el que busco lo retorno   
+      //Si el nodo actual es el que busco lo retorno
       if (value === current.value) return current;
 
       //Sino pregunto el valor es menor a mi nodo y me voy a la izquierda y sino a la derecha
       if (value < current.value) {
         current = current.left;
-      }else{
+      } else {
         current = current.right;
       }
     }
@@ -80,8 +78,26 @@ class BinarySearchTree {
   }
 }
 
+//Recursividad: funcion que se llama a si misma 
+function recursiveShowMessage(n){
+  //N Numero que queremos que se repita 
+  //Llamar a la misma funcion y cuando me detengo
 
-//Uso arbol binario de busqueda 
+  //Si llega a 0 se sale
+  if(n===0) return; //En este punto sacara lo de la pila
+  
+  console.log('pila', n) //Va apilar 5, 4, 3, 2, 1 (el elemento que entro al final sale primero)
+  //Se llama a si misma pero si se recibe un 4 por ejemplo esto entregara un 3 luego un 2 etc
+  recursiveShowMessage(n-1);
+
+  //Va imprimir todo lo de la pila en forma 1, 2, 3, 4, 5
+  console.log('mensaje', n)
+
+}
+
+recursiveShowMessage(5)
+
+//Uso arbol binario de busqueda
 const tree = new BinarySearchTree();
 tree.insert(5);
 tree.insert(9);
@@ -91,7 +107,5 @@ tree.insert(11);
 tree.insert(8);
 tree.insert(4);
 tree.insert(3);
-
-
 
 console.log(tree.serch(40));
